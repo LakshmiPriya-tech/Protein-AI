@@ -11,7 +11,7 @@ import {
   Layers, GitBranch, Atom, Beaker, Sigma, Bot, Sparkles, Eye, Play,
   ChevronDown, Menu, X, ExternalLink, ArrowLeft
 } from 'lucide-react'
-
+const API = import.meta.env.VITE_API_URL;
 // ===== CUSTOM CURSOR =====
 const CustomCursor = () => {
   const cursorRef = useRef(null)
@@ -1691,7 +1691,7 @@ const AnalysisConsole = ({ onBack }) => {
     setResult(null)
 
     try {
-      const response = await fetch('/api/analyze', {
+      const response = await fetch(`${API}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -2003,7 +2003,7 @@ const AnalysisConsole = ({ onBack }) => {
                   <iframe
                     title="Protein visualization"
                     className="visualization-frame"
-                    src="/api/visualization"
+                    src={`${API}/visualization`}
                   />
                 </article>
 
