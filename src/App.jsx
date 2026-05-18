@@ -1691,7 +1691,7 @@ const AnalysisConsole = ({ onBack }) => {
     setResult(null)
 
     try {
-      const response = await fetch(`${API}/predict`, {
+      const response = await fetch(`${API}/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
